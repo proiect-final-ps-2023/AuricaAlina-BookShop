@@ -1,0 +1,31 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container px-5">
+      <a class="navbar-brand" href="firstPage">BookShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<div style="margin-left: 30%; margin-right: 30%" class="card-header">
+    <h1 style="color: deeppink">Sign in</h1>
+    <form (ngSubmit)="login()">
+      <div class="mb-3">
+        <label for="primaryEmail" class="form-label">Email</label>
+        <input type="primaryEmail" [(ngModel)]="user.email" required [email]="true" #prmEmail="ngModel" class="form-control" id="primaryEmail" name="primaryEmail">
+        <div *ngIf="prmEmail.errors?.['email']"> Email address is not valid.</div>
+        <div *ngIf="prmEmail.errors?.['required']">Null email.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" [(ngModel)]="user.password" required #nullPassword="ngModel" class="form-control"  id="password" name="password">
+        <div *ngIf="nullPassword.errors?.['required']">Null password.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <a class="btn btn-primary" href="registerPage">Register</a>
+    </form>
+</div>
+
